@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>FIFA GAMES • Admin Players</title>
+<style>
+:root{--bg:#050817;--card:rgba(9,18,43,.78);--card2:rgba(13,27,58,.92);--gold:#ffc83d;--gold2:#ff9d18;--cyan:#38d9ff;--green:#45ef9b;--red:#ff5e75;--text:#f7fbff;--muted:#9fb0cf;--line:rgba(255,255,255,.1);}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Arial,"Segoe UI",sans-serif;background:#030611;color:var(--text);overflow-x:hidden}
+body{background:
+radial-gradient(circle at 50% 0%,rgba(56,217,255,.14),transparent 32%),
+radial-gradient(circle at 90% 30%,rgba(255,200,61,.1),transparent 25%),
+linear-gradient(180deg,#040814 0%,#07132c 55%,#030611 100%);}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:32px 32px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+.stage{position:fixed;inset:auto 0 0;height:36vh;pointer-events:none;opacity:.42;background:radial-gradient(ellipse at center bottom,rgba(17,124,88,.45),transparent 55%);}
+.light{position:fixed;top:-80px;width:170px;height:420px;background:linear-gradient(180deg,rgba(255,255,255,.08),transparent);filter:blur(1px);transform:perspective(300px) rotateX(22deg);pointer-events:none}.l1{left:8%;clip-path:polygon(45% 0,55% 0,100% 100%,0 100%)}.l2{right:8%;clip-path:polygon(45% 0,55% 0,100% 100%,0 100%)}
+.wrap{width:min(1120px,92%);margin:auto;padding:28px 0 50px;position:relative;z-index:2}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:22px}.brand{display:flex;align-items:center;gap:13px}.ball{width:48px;height:48px;border-radius:16px;background:linear-gradient(145deg,#182b56,#08132e);border:1px solid rgba(255,255,255,.16);display:grid;place-items:center;font-size:25px;box-shadow:0 10px 40px rgba(0,0,0,.35),0 0 25px rgba(56,217,255,.12)}.brand h1{font-size:25px;margin:0}.brand p{margin:3px 0 0;color:var(--muted);font-size:12px}.pill{padding:9px 12px;border:1px solid var(--line);background:rgba(8,18,40,.65);border-radius:999px;color:#cfe0ff;font-size:12px}
+.grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}.card{background:linear-gradient(160deg,rgba(18,32,69,.9),rgba(4,11,28,.82));border:1px solid var(--line);border-radius:24px;box-shadow:0 24px 70px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,255,255,.04);backdrop-filter:blur(18px);overflow:hidden}.card .head{padding:22px 22px 0}.head h2{margin:0;font-size:18px}.head p{margin:8px 0 0;color:var(--muted);font-size:13px;line-height:1.7}.form{padding:22px}.label{display:block;font-size:12px;color:#bdc9df;margin:0 0 8px}.input{width:100%;background:#07122b;border:1px solid rgba(255,255,255,.1);color:white;border-radius:15px;padding:15px;font-size:15px;outline:none;transition:.25s}.input:focus{border-color:rgba(56,217,255,.65);box-shadow:0 0 0 4px rgba(56,217,255,.08),0 0 25px rgba(56,217,255,.08)}.field{margin-bottom:16px}.pass-row{position:relative}.toggle{position:absolute;left:10px;top:8px;height:34px;padding:0 10px;border:0;border-radius:10px;background:#111f3d;color:#bcd3ff;cursor:pointer}.submit{width:100%;border:0;border-radius:16px;padding:15px;font-size:16px;font-weight:900;color:#15100a;background:linear-gradient(90deg,#ffd65b,#ff9e19);cursor:pointer;box-shadow:0 10px 35px rgba(255,158,25,.24);transition:.22s;position:relative;overflow:hidden}.submit:hover{transform:translateY(-2px);box-shadow:0 14px 44px rgba(255,158,25,.32)}.submit:active{transform:translateY(0)}.submit.busy{opacity:.72;pointer-events:none}.hint{margin-top:10px;color:#7e91b3;font-size:11px;line-height:1.6}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}.stat{padding:14px;border:1px solid var(--line);border-radius:17px;background:rgba(0,0,0,.13)}.stat b{font-size:22px;display:block}.stat span{font-size:11px;color:var(--muted)}
+.players{padding:18px 22px 22px}.toolbar{display:flex;gap:10px;margin-bottom:13px}.toolbar .input{padding:12px}.refresh{border:1px solid var(--line);background:#101d3b;color:white;border-radius:13px;padding:0 14px;cursor:pointer}.list{display:flex;flex-direction:column;gap:9px;max-height:450px;overflow:auto;padding-right:3px}.row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 14px;border:1px solid rgba(255,255,255,.07);border-radius:15px;background:rgba(6,13,31,.62);animation:rise .35s ease both}.who{display:flex;align-items:center;gap:11px}.avatar{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(145deg,#1a3f6e,#0e182d);border:1px solid rgba(255,255,255,.09);font-weight:900}.meta b{display:block;font-size:13px}.meta span{display:block;margin-top:3px;color:#7e91b3;font-size:10px}.score{text-align:left}.score b{display:block}.score span{font-size:10px;color:#7e91b3}.empty{padding:30px 10px;text-align:center;color:#7284a7;font-size:12px}
+.toast{position:fixed;left:50%;top:20px;transform:translate(-50%,-30px);opacity:0;z-index:10;padding:13px 18px;border-radius:15px;border:1px solid var(--line);background:rgba(5,12,28,.9);backdrop-filter:blur(16px);box-shadow:0 20px 55px rgba(0,0,0,.4);transition:.3s;pointer-events:none;min-width:260px;text-align:center;font-size:13px}.toast.show{transform:translate(-50%,0);opacity:1}.toast.ok{border-color:rgba(69,239,155,.35)}.toast.err{border-color:rgba(255,94,117,.4)}
+.foot{margin-top:14px;color:#7183a6;font-size:10px;text-align:center}.secure{display:inline-flex;align-items:center;gap:6px;color:#7ce7b2}.shine{position:absolute;inset:0;transform:translateX(-110%);background:linear-gradient(100deg,transparent 35%,rgba(255,255,255,.4),transparent 65%);animation:shine 4.5s infinite;pointer-events:none}.warn{margin-top:14px;padding:12px 13px;border-radius:14px;background:rgba(255,94,117,.07);border:1px solid rgba(255,94,117,.18);color:#ffacba;font-size:11px;line-height:1.7}
+@keyframes shine{50%,100%{transform:translateX(110%)}}@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(max-width:850px){.grid{grid-template-columns:1fr}.top{align-items:flex-start;flex-direction:column}.pill{align-self:stretch;text-align:center}.wrap{padding-top:18px}.brand h1{font-size:21px}}
+</style>
+</head>
+<body>
+<div class="light l1"></div><div class="light l2"></div><div class="stage"></div>
+<div class="toast" id="toast"></div>
+<div class="wrap">
+  <div class="top">
+    <div class="brand"><div class="ball">⚽</div><div><h1>FIFA GAMES • PLAYER CONTROL</h1><p>لوحة إضافة اللاعبين إلى Supabase بشكل آمن</p></div></div>
+    <div class="pill">🔐 ADMIN PANEL • PRIVATE</div>
+  </div>
+  <div class="grid">
+    <section class="card">
+      <div class="head"><h2>إضافة لاعب جديد</h2><p>اكتب اسم الدخول والباسورد واضغط إضافة. الحساب يتسجل في Supabase Auth ويتعمل له Player Profile تلقائيًا.</p></div>
+      <form class="form" id="addForm">
+        <div class="field"><label class="label">اسم اللاعب / اسم الدخول</label><input class="input" id="username" autocomplete="off" placeholder="مثال: dod_202" maxlength="30" required></div>
+        <div class="field"><label class="label">الباسورد</label><div class="pass-row"><input class="input" id="password" type="password" autocomplete="new-password" placeholder="8 أحرف على الأقل" minlength="8" required><button class="toggle" type="button" id="toggle">إظهار</button></div></div>
+        <button class="submit" id="submitBtn" type="submit"><span class="shine"></span><span id="submitText">إضافة اللاعب ✨</span></button>
+        <div class="hint">اسم الدخول يقبل English letters + numbers + _ - . فقط، عشان نقدر نستخدمه كمعرّف Auth داخلي.</div>
+        <div class="warn">مهم: لا تضع Service Role / Secret Key داخل هذا الملف. المفتاح السري يبقى داخل Supabase Edge Function فقط.</div>
+        <div class="stats"><div class="stat"><b id="countPlayers">—</b><span>لاعبين</span></div><div class="stat"><b id="countPoints">—</b><span>مجموع النقاط</span></div><div class="stat"><b id="countWins">—</b><span>مجموع الانتصارات</span></div></div>
+      </form>
+    </section>
+    <section class="card">
+      <div class="head"><h2>اللاعبون الموجودون</h2><p>قائمة سريعة بكل الحسابات التي تم إنشاؤها من نفس المشروع.</p></div>
+      <div class="players">
+        <div class="toolbar"><input class="input" id="search" placeholder="ابحث عن لاعب..." autocomplete="off"><button class="refresh" id="refresh" type="button">تحديث</button></div>
+        <div class="list" id="list"><div class="empty">اضغط تحديث لعرض اللاعبين.</div></div>
+      </div>
+    </section>
+  </div>
+  <div class="foot"><span class="secure">● الاتصال يتم عبر HTTPS + Edge Function</span> • FIFA GAMES ADMIN</div>
+</div>
+<script>
+const FUNCTION_URL='https://YOUR-PROJECT-REF.supabase.co/functions/v1/admin-players';
+const els={username:document.getElementById('username'),password:document.getElementById('password'),toggle:document.getElementById('toggle'),form:document.getElementById('addForm'),submit:document.getElementById('submitBtn'),submitText:document.getElementById('submitText'),toast:document.getElementById('toast'),list:document.getElementById('list'),search:document.getElementById('search'),refresh:document.getElementById('refresh'),countPlayers:document.getElementById('countPlayers'),countPoints:document.getElementById('countPoints'),countWins:document.getElementById('countWins')};
+let adminSecret=sessionStorage.getItem('fifa_admin_secret')||'';
+function toast(msg,type='ok'){els.toast.textContent=msg;els.toast.className='toast show '+type;clearTimeout(window._tt);window._tt=setTimeout(()=>els.toast.className='toast',3000)}
+function setBusy(v){els.submit.classList.toggle('busy',v);els.submitText.textContent=v?'جاري الإضافة...':'إضافة اللاعب ✨'}
+async function api(action,payload={}){
+  if(!adminSecret){adminSecret=prompt('اكتب Admin Secret الخاص بك:')?.trim()||'';if(!adminSecret)throw new Error('لم يتم إدخال Admin Secret');sessionStorage.setItem('fifa_admin_secret',adminSecret)}
+  const r=await fetch(FUNCTION_URL,{method:'POST',headers:{'Content-Type':'application/json','x-admin-secret':adminSecret},body:JSON.stringify({action,...payload})});
+  const data=await r.json().catch(()=>({}));
+  if(r.status===401){sessionStorage.removeItem('fifa_admin_secret');adminSecret='';throw new Error('Admin Secret غير صحيح');}
+  if(!r.ok)throw new Error(data.error||'حدث خطأ غير متوقع');
+  return data;
+}
+function render(players){
+  const q=(els.search.value||'').trim().toLowerCase();const arr=players.filter(p=>p.username.toLowerCase().includes(q));
+  els.list.innerHTML=arr.length?arr.map((p,i)=>`<div class="row" style="animation-delay:${Math.min(i*35,350)}ms"><div class="who"><div class="avatar">${(p.username[0]||'P').toUpperCase()}</div><div class="meta"><b>${escapeHtml(p.username)}</b><span>${new Date(p.created_at).toLocaleString('ar-EG')}</span></div></div><div class="score"><b>${p.points} نقطة</b><span>${p.wins} فوز</span></div></div>`).join(''):'<div class="empty">لا يوجد لاعبين مطابقين.</div>';
+  els.countPlayers.textContent=players.length;els.countPoints.textContent=players.reduce((a,p)=>a+Number(p.points||0),0);els.countWins.textContent=players.reduce((a,p)=>a+Number(p.wins||0),0);
+}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+async function load(){try{const d=await api('list');render(d.players||[])}catch(e){els.list.innerHTML='<div class="empty">تعذر تحميل القائمة.</div>';if(e.message!=='Admin Secret غير صحيح')toast(e.message,'err')}}
+els.toggle.onclick=()=>{const show=els.password.type==='password';els.password.type=show?'text':'password';els.toggle.textContent=show?'إخفاء':'إظهار'};
+els.search.oninput=()=>load().catch(()=>{});
+els.refresh.onclick=()=>load();
+els.form.onsubmit=async e=>{e.preventDefault();const username=els.username.value.trim();const password=els.password.value;if(!/^[A-Za-z0-9._-]{3,30}$/.test(username))return toast('اسم الدخول لازم يكون 3-30 حرفًا ويحتوي English letters / numbers / _ - . فقط','err');if(password.length<8)return toast('الباسورد لازم يكون 8 أحرف على الأقل','err');setBusy(true);try{const d=await api('create',{username,password});toast(`تمت إضافة ${d.player.username} بنجاح ✅`);els.form.reset();els.password.type='password';els.toggle.textContent='إظهار';await load()}catch(err){toast(err.message,'err')}finally{setBusy(false)}};
+load().catch(()=>{});
+</script>
+</body>
+</html>
