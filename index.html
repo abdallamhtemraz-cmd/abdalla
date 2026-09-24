@@ -54,7 +54,7 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;background:lin
   <div class="foot"><span class="secure">● الاتصال يتم عبر HTTPS + Edge Function</span> • FIFA GAMES ADMIN</div>
 </div>
 <script>
-const FUNCTION_URL='https://YOUR-PROJECT-REF.supabase.co/functions/v1/admin-players';
+const FUNCTION_URL='https://rubduyolnxkskvinhote.supabase.co/functions/v1/swift-endpoint';
 const els={username:document.getElementById('username'),password:document.getElementById('password'),toggle:document.getElementById('toggle'),form:document.getElementById('addForm'),submit:document.getElementById('submitBtn'),submitText:document.getElementById('submitText'),toast:document.getElementById('toast'),list:document.getElementById('list'),search:document.getElementById('search'),refresh:document.getElementById('refresh'),countPlayers:document.getElementById('countPlayers'),countPoints:document.getElementById('countPoints'),countWins:document.getElementById('countWins')};
 let adminSecret=sessionStorage.getItem('fifa_admin_secret')||'';
 function toast(msg,type='ok'){els.toast.textContent=msg;els.toast.className='toast show '+type;clearTimeout(window._tt);window._tt=setTimeout(()=>els.toast.className='toast',3000)}
